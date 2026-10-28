@@ -86,8 +86,14 @@
 
     <div class="field">
       <label for="phone">Номер телефону</label>
-      <input id="phone" name="phone" type="tel" placeholder="+211 9XX XXX XXX"
-             inputmode="tel" pattern="[0-9+ ]{6,}" required>
+      <div style="display:flex;gap:0;align-items:stretch">
+        <div style="display:flex;align-items:center;gap:6px;padding:0 12px;background:#f5f5f5;border:1.5px solid var(--line);border-right:none;border-radius:12px 0 0 12px;font-size:15px;font-weight:600;color:#333;white-space:nowrap">
+          <span style="font-size:20px">🇺🇦</span> +380
+        </div>
+        <input id="phone" name="phone" type="tel" placeholder="XX XXX XX XX"
+               inputmode="tel" pattern="[0-9 ]{9,}" required
+               style="border-radius:0 12px 12px 0;border-left:none">
+      </div>
     </div>
 
     <div class="field">
@@ -97,26 +103,31 @@
 
     <div class="field">
       <label for="country">Країна</label>
-      <select id="country" name="country" required onchange="updateStates()">
-        <option value="" disabled selected>Оберіть країну</option>
-        <option value="KE">Кенія</option>
-        <option value="RW">Руанда</option>
-        <option value="SS" selected>Південний Судан</option>
-        <option value="TZ">Танзанія</option>
-        <option value="UG">Уганда</option>
+      <select id="country" name="country" required>
+        <option value="UA" selected>🇺🇦 Україна</option>
       </select>
     </div>
 
     <div class="field">
-      <label for="wilaya">Область / Регіон</label>
+      <label for="wilaya">Область</label>
       <select id="wilaya" name="wilaya" required>
         <option value="" disabled selected>Оберіть область</option>
       </select>
     </div>
 
     <div class="field">
-      <label for="address">Контактна адреса</label>
-      <textarea id="address" name="address" placeholder="напр.: Джуба, Мунукі, Блок 5..." required></textarea>
+      <label for="city">Місто / Населений пункт</label>
+      <input id="city" name="city" type="text" placeholder="напр.: Київ" required>
+    </div>
+
+    <div class="field">
+      <label for="address">Адреса доставки</label>
+      <textarea id="address" name="address" placeholder="напр.: вул. Хрещатик, 22, кв. 15" required></textarea>
+    </div>
+
+    <div class="field">
+      <label for="postcode">Поштовий індекс</label>
+      <input id="postcode" name="postcode" type="text" placeholder="напр.: 01001" inputmode="numeric" pattern="[0-9]{5}" required>
     </div>
 
     <button class="submit" type="submit">Підтвердити замовлення</button>
@@ -131,25 +142,26 @@
 
 
 <script>
-  const statesByCountry = {
-    KE: ["Nairobi","Mombasa","Kisumu","Nakuru","Uasin Gishu (Eldoret)","Kiambu","Machakos","Nyeri","Meru","Kakamega","Kilifi","Garissa","Nyandarua","Kajiado","Laikipia","Turkana","Marsabit"],
-    RW: ["Kigali","Northern Province","Southern Province","Eastern Province","Western Province"],
-    SS: ["Central Equatoria (Juba)","Eastern Equatoria (Torit)","Jonglei (Bor)","Lakes (Rumbek)","Northern Bahr el Ghazal (Aweil)","Unity (Bentiu)","Upper Nile (Malakal)","Warrap (Kuajok)","Western Bahr el Ghazal (Wau)","Western Equatoria (Yambio)"],
-    TZ: ["Dar es Salaam","Dodoma","Arusha","Mwanza","Tanga","Morogoro","Zanzibar","Mbeya","Iringa","Kilimanjaro","Kagera","Tabora","Shinyanga","Kigoma"],
-    UG: ["Kampala","Wakiso","Mukono","Jinja","Gulu","Mbarara","Lira","Mbale","Fort Portal","Arua","Soroti","Masaka","Entebbe","Hoima"]
-  };
+  var oblasts = [
+    "Вінницька область","Волинська область","Дніпропетровська область",
+    "Донецька область","Житомирська область","Закарпатська область",
+    "Запорізька область","Івано-Франківська область","Київська область",
+    "Кіровоградська область","Луганська область","Львівська область",
+    "Миколаївська область","Одеська область","Полтавська область",
+    "Рівненська область","Сумська область","Тернопільська область",
+    "Харківська область","Херсонська область","Хмельницька область",
+    "Черкаська область","Чернівецька область","Чернігівська область",
+    "м. Київ"
+  ];
 
-  function updateStates() {
+  (function(){
     var sel = document.getElementById("wilaya");
-    var code = document.getElementById("country").value;
     sel.innerHTML = '<option value="" disabled selected>Оберіть область</option>';
-    var list = statesByCountry[code] || [];
-    list.forEach(function(w) {
-      var o = document.createElement("option");
-      o.value = w; o.textContent = w; sel.appendChild(o);
+    oblasts.forEach(function(o){
+      var opt = document.createElement("option");
+      opt.value = o; opt.textContent = o; sel.appendChild(opt);
     });
-  }
-  updateStates();
+  })();
 
   const watches = [
     {img:"images/6.png",name:"Bold Red"},{img:"images/3.png",name:"Elegant Silver"},
@@ -181,11 +193,13 @@
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
           name: document.getElementById("name").value,
-          phone: document.getElementById("phone").value,
+          phone: "+380" + document.getElementById("phone").value.replace(/\s/g,""),
           email: document.getElementById("email").value,
           country: document.getElementById("country").value,
           wilaya: document.getElementById("wilaya").value,
+          city: document.getElementById("city").value,
           address: document.getElementById("address").value,
+          postcode: document.getElementById("postcode").value,
           watch_color: watchColor,
           watch_index: (!isNaN(pick) && watches[pick]) ? pick : null
         })
