@@ -184,19 +184,8 @@
   .charity-donate-row input{flex:1;padding:14px 16px;border:1.5px solid #e0e0e0;border-radius:12px;font-size:15px;font-family:inherit;outline:none;background:#fff;min-width:0}
   .charity-donate-row input:focus{border-color:#00A651}
   .charity-donate-row .donate-btn{padding:14px 28px;background:#00A651;color:#fff;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;display:flex;align-items:center}
-  /* ===== Map Section ===== */
-  .map-section{padding:28px 16px}
-  .map-section h4{font-size:22px;font-weight:700;margin-bottom:12px;padding:0}
-  .map-section .map-subtext{font-size:14px;color:#555;line-height:1.6;margin-bottom:20px}
-  .map-btns{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
-  .map-btns a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border:1.5px solid #e0e0e0;border-radius:12px;color:#1a1a1a;font-size:15px;font-weight:600;text-decoration:none;background:#fff}
-  .map-btns a svg{width:24px;height:24px;flex-shrink:0}
-  .map-inclusive{display:inline-flex;align-items:center;gap:6px;margin-bottom:20px;font-size:14px;font-weight:500}
-  .map-inclusive a{color:#4EA524;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-  .map-inclusive svg{width:24px;height:24px;flex-shrink:0}
-  .map-image img{width:100%;border-radius:16px}
   /* ===== Footer ===== */
-  .pb-footer{background:#f7f7f7;padding:0;margin-top:28px;font-size:13px;color:#444}
+  .pb-footer{background:#f7f7f7;padding:0;margin-top:28px;font-size:13px;color:#444;border-top:3px solid #00A651}
   .ft-content{padding:32px 16px 0}
   .ft-phones{margin-bottom:24px}
   .ft-phone-row{display:flex;align-items:center;gap:14px;margin-bottom:24px}
@@ -610,35 +599,6 @@
     <div class="charity-donate-row">
       <input type="number" placeholder="Amount in UAH">
       <a class="donate-btn" href="https://dobro.privatbank.ua/" target="_blank" rel="noopener">Donate</a>
-    </div>
-  </section>
-
-  <!-- ===== Map of Branches ===== -->
-  <section class="map-section">
-    <h4>Map of Branches, ATMs and Self-service Terminals</h4>
-    <p class="map-subtext">Find physical address, operating hours and break time of the nearest branch on the map. Use filters to quickly find branches in service, exchange points for exotic currency or branches accessible to people with reduced mobility.</p>
-    <div class="map-btns">
-      <a href="https://privatbank.ua/en/map">
-        <svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.1816 2.49784C13.6831 1.84173 11.9815 1.82598 10.4711 2.45423L4.01223 5.14064C2.08221 5.94339 2.54556 8.72598 4.5 8.97014L4.5 16H3.5C2.94772 16 2.5 16.4477 2.5 17C2.5 17.5523 2.94772 18 3.5 18H21.5C22.0523 18 22.5 17.5523 22.5 17C22.5 16.4477 22.0523 16 21.5 16H20.5V8.98672C22.6249 8.94063 23.2199 6.01713 21.2511 5.15517L15.1816 2.49784ZM18.5 8.98728H16.5V16H18.5V8.98728ZM14.5 8.98728H12.6599H10.5V16H14.5V8.98728ZM8.5 8.98728H6.5V16H8.5L8.5 8.98728ZM11.2391 4.30087C12.2461 3.88203 13.3805 3.89253 14.3795 4.32994L20.449 6.98727L12.6599 6.98728H4.7803L11.2391 4.30087ZM2.5 21C2.5 20.4477 2.94772 20 3.5 20H21.5C22.0523 20 22.5 20.4477 22.5 21C22.5 21.5523 22.0523 22 21.5 22H3.5C2.94772 22 2.5 21.5523 2.5 21Z" fill="#1E2527" fill-opacity="0.58"/></svg>
-        Branches
-      </a>
-      <a href="https://privatbank.ua/en/map?objType=atm">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_atm)"><path d="M20 4H4C2.89 4 2.01 4.89 2.01 6L2 18C2 19.11 2.89 20 4 20H20C21.11 20 22 19.11 22 18V6C22 4.89 21.11 4 20 4ZM20 17C20 17.55 19.55 18 19 18H5C4.45 18 4 17.55 4 17V7C4 6.45 4.45 6 5 6H19C19.55 6 20 6.45 20 7V17Z" fill="#1E2527" fill-opacity="0.58"/><circle cx="12" cy="12" r="3" stroke="#1E2527" stroke-opacity="0.58" stroke-width="2"/><circle cx="18" cy="12" r="1" fill="#1E2527" fill-opacity="0.58"/><circle cx="6" cy="12" r="1" fill="#1E2527" fill-opacity="0.58"/></g><defs><clipPath id="clip0_atm"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>
-        ATMs
-      </a>
-      <a href="https://privatbank.ua/en/map?objType=terminal">
-        <svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5.5" y="3" width="14" height="18" rx="2" stroke="#1E2527" stroke-opacity="0.58" stroke-width="2"/><rect x="9.5" y="7" width="6" height="6" rx="0.5" stroke="#1E2527" stroke-opacity="0.58" stroke-width="2"/><rect x="10.5" y="15" width="4" height="2" rx="1" fill="#1E2527" fill-opacity="0.58"/></svg>
-        Terminals
-      </a>
-    </div>
-    <div class="map-inclusive">
-      <a href="https://static.privatbank.ua/files/list-of-inclusive-branches-pryvatbank.pdf" target="_blank" rel="nofollow">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 4C9.5 2.89 10.39 2 11.5 2C12.61 2 13.5 2.89 13.5 4C13.5 5.11 12.61 6 11.5 6C10.39 6 9.5 5.11 9.5 4ZM14 16C14 17.65 12.65 19 11 19C9.35 19 8 17.65 8 16C8 14.89 8.61 13.94 9.5 13.42V11.26C7.48 11.9 6 13.77 6 16C6 18.76 8.24 21 11 21C13.76 21 16 18.76 16 16H14ZM16.5 13H12.5V8C12.5 7.45 12.05 7 11.5 7C10.95 7 10.5 7.45 10.5 8V14C10.5 14.55 10.95 15 11.5 15H15.96L17.88 17.88C18.19 18.34 18.81 18.46 19.27 18.16C19.73 17.85 19.85 17.23 19.55 16.77L17.34 13.45C17.15 13.17 16.83 13 16.5 13Z" fill="#4EA524"/></svg>
-        Inclusive Branches
-      </a>
-    </div>
-    <div class="map-image">
-      <img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/87/49745c5977c4eac1296600a63df202f7df1e59d5.png" alt="Map of Branches, ATMs and Self-service Terminals">
     </div>
   </section>
 
