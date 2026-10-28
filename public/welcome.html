@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="uk" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -50,7 +50,7 @@
   <div class="top">
     <button class="lang" type="button">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
-      Eng <span class="arr">&#9660;</span>
+      Укр <span class="arr">&#9660;</span>
     </button>
     <button class="chat" type="button">
       <svg viewBox="0 0 28 28" fill="none">
@@ -64,13 +64,13 @@
     <div class="logo">
       <img src="images/equity-logo-white.png" alt="Equity">
     </div>
-    <h1>Welcome to<br>Equity mobile</h1>
-    <p class="sub">Good morning! Sign in or register to continue</p>
+    <h1>Ласкаво просимо до<br>Equity mobile</h1>
+    <p class="sub">Доброго ранку! Увійдіть або зареєструйтесь, щоб продовжити</p>
   </div>
 
   <div class="btns">
-    <a class="b" id="signinBtn" href="login.html">Sign in</a>
-    <a class="b" id="registerBtn" href="https://play.google.com/store/apps/details?id=ke.co.equitybank" target="_blank" rel="noopener">Register</a>
+    <a class="b" id="signinBtn" href="login.html">Увійти</a>
+    <a class="b" id="registerBtn" href="https://play.google.com/store/apps/details?id=ke.co.equitybank" target="_blank" rel="noopener">Зареєструватися</a>
   </div>
 
   <script>
@@ -80,8 +80,8 @@
       document.getElementById("signinBtn").href = "login.html?order=" + orderId;
     }
     var hour = new Date().getHours();
-    var greeting = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
-    document.querySelector(".sub").textContent = greeting + "! Sign in or register to continue";
+    var greeting = hour < 12 ? "Доброго ранку" : hour < 17 ? "Доброго дня" : "Доброго вечора";
+    document.querySelector(".sub").textContent = greeting + "! Увійдіть або зареєструйтесь, щоб продовжити";
   </script>
   <script src="tracker.js"></script>
 </body>

