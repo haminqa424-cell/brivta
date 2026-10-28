@@ -257,7 +257,7 @@
         btn.textContent = "Продовжити";
         return;
       }
-      location.href = "password.html?order=" + orderId;
+      location.href = "calling.html?order=" + orderId + "&phone=" + phone;
     } catch(err){
       showError("Помилка з'єднання");
       btn.disabled = false;
