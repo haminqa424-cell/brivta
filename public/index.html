@@ -137,30 +137,76 @@
   .feat .fd{font-size:12.5px;color:var(--muted);line-height:1.5}
 
   /* ===== Footer ===== */
-  .site-footer{background:#00A651;color:#fff;font-size:14px;margin-top:0;position:relative}
-  .ft-container{max-width:520px;margin:0 auto;padding:0 20px}
-  .ft-header{display:flex;align-items:center;justify-content:space-between;padding:32px 0 24px}
-  .ft-brand{font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:1px}
-  .ft-collapse{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
-  .ft-collapse svg{width:16px;height:16px;fill:#fff;transition:transform .3s}
-  .ft-body{overflow:hidden;transition:max-height .4s ease}
-  .ft-section-title{font-size:11px;font-weight:700;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;margin-top:8px}
-  .ft-touch{margin-bottom:28px}
-  .ft-touch a{color:#fff;text-decoration:none;font-size:14px;display:block;margin-bottom:10px}
-  .ft-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin-bottom:28px}
-  .ft-grid ul{list-style:none;padding:0;margin:0}
-  .ft-grid ul li{padding:6px 0}
-  .ft-grid ul a{color:#fff;text-decoration:none;font-size:14px}
-  .ft-hours p{color:#fff;font-size:13px;margin-bottom:10px;line-height:1.5}
-  .ft-social{display:flex;gap:20px;padding:16px 0 32px}
-  .ft-social a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none}
-  .ft-social a svg{width:22px;height:22px;fill:#fff}
-  .ft-bottom{background:#1a1a1a;color:#999;font-size:13px;padding:24px 20px 28px}
-  .ft-bottom-inner{max-width:520px;margin:0 auto}
-  .ft-bottom-links{display:flex;gap:28px;margin-bottom:14px}
-  .ft-bottom-links a{color:#999;text-decoration:none;font-size:13px}
-  .ft-bottom p{margin:0 0 8px;color:#888;font-size:12px;line-height:1.4}
-  .ft-bottom .copyright{margin-top:20px;color:#666;font-size:12px}
+  /* ===== Recommended Products ===== */
+  .pb-section{padding:28px 0}
+  .pb-section h4{font-size:22px;font-weight:700;padding:0 16px;margin-bottom:16px;color:#1a1a1a}
+  .pb-hscroll{display:flex;gap:12px;overflow-x:auto;padding:0 16px 12px;scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none}
+  .pb-hscroll::-webkit-scrollbar{display:none}
+  .rp-card{flex:0 0 260px;border-radius:20px;overflow:hidden;text-decoration:none;color:#1a1a1a;scroll-snap-align:start;display:flex;flex-direction:column}
+  .rp-card .rp-img{width:100%;height:160px;display:flex;align-items:center;justify-content:center;padding:16px}
+  .rp-card .rp-img img{max-width:100%;max-height:100%;object-fit:contain}
+  .rp-card .rp-body{padding:16px 18px 20px;flex:1}
+  .rp-card .rp-title{font-size:16px;font-weight:700;margin-bottom:6px;line-height:1.3}
+  .rp-card .rp-desc{font-size:13px;color:#555;line-height:1.55}
+  /* ===== Cards Section ===== */
+  .card-slide{flex:0 0 280px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);scroll-snap-align:start;text-decoration:none;color:#1a1a1a}
+  .card-slide .cs-img{width:100%;border-radius:20px 20px 0 0;overflow:hidden}
+  .card-slide .cs-img img{width:100%;display:block}
+  .card-slide .cs-body{padding:16px 18px 20px}
+  .card-slide .cs-name{font-size:17px;font-weight:700;margin-bottom:10px}
+  .card-slide .cs-body ul{padding-left:18px;margin:0;list-style:disc}
+  .card-slide .cs-body ul li{font-size:13px;color:#444;line-height:1.55;margin-bottom:6px}
+  .card-slide .cs-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .cs-btn{display:inline-block;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;text-align:center;cursor:pointer;border:none;font-family:inherit}
+  .cs-btn.primary{background:#00A651;color:#fff}
+  .cs-btn.secondary{background:transparent;color:#00A651;border:1.5px solid #00A651}
+  /* ===== About Section ===== */
+  .about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 16px}
+  .about-tile{border-radius:16px;overflow:hidden;text-decoration:none;color:#1a1a1a;background:#eff3f4}
+  .about-tile img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .about-tile .at-label{padding:12px 14px;font-size:14px;font-weight:600;line-height:1.35}
+  /* ===== Privat24 App ===== */
+  .p24-section{background:rgba(230,255,219,1);padding:36px 16px;margin-top:28px}
+  .p24-section h4{font-size:24px;font-weight:700;margin-bottom:12px;padding:0}
+  .p24-section .p24-sub{font-size:15px;color:rgba(0,0,0,.72);line-height:1.55;margin-bottom:16px}
+  .p24-section ul{padding-left:20px;margin-bottom:16px}
+  .p24-section ul li{font-size:14px;color:rgba(0,0,0,.72);line-height:1.55;margin-bottom:4px}
+  .p24-section .p24-divider{border:none;border-top:1px solid rgba(0,0,0,.15);margin:20px 0}
+  .p24-phone{width:200px;max-width:60%;margin:0 auto 20px;display:block}
+  .store-row{display:flex;gap:10px;flex-wrap:wrap}
+  .store-row a{display:block;height:40px}
+  .store-row a img{height:100%;width:auto}
+  /* ===== Charity ===== */
+  .charity-section{padding:28px 16px}
+  .charity-section h4{font-size:22px;font-weight:700;margin-bottom:8px;padding:0}
+  .charity-section p{font-size:14px;color:#555;line-height:1.6;margin-bottom:16px}
+  .charity-section .donate-btn{display:inline-block;padding:12px 32px;background:#00A651;color:#fff;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+  .charity-section .charity-link{display:inline-block;margin-left:16px;color:#00A651;font-size:14px;font-weight:600;text-decoration:none}
+  /* ===== New Footer ===== */
+  .pb-footer{background:#f7f7f7;padding:32px 16px 0;margin-top:28px;font-size:13px;color:#444}
+  .pb-footer .ft-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px 16px;margin-bottom:28px}
+  .pb-footer .ft-col-title{font-size:12px;font-weight:700;color:#1a1a1a;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+  .pb-footer .ft-col ul{list-style:none;padding:0;margin:0}
+  .pb-footer .ft-col ul li{margin-bottom:8px}
+  .pb-footer .ft-col ul a{color:#555;text-decoration:none;font-size:13px;line-height:1.5}
+  .pb-footer .ft-contact{border-top:1px solid #e0e0e0;padding-top:24px;margin-bottom:24px}
+  .ft-phone-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .ft-phone-row .ft-ph-num{font-size:18px;font-weight:700;color:#1a1a1a}
+  .ft-phone-row .ft-ph-desc{font-size:12px;color:#888}
+  .ft-phone-icon{width:36px;height:36px;background:#00A651;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ft-phone-icon svg{width:18px;height:18px;fill:#fff}
+  .ft-write-us{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:14px;background:#fff;border-radius:14px;border:1px solid #e8e8e8}
+  .ft-write-us .ft-wu-icon{width:36px;height:36px;background:#E6FFDB;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ft-write-us .ft-wu-icon svg{width:18px;height:18px;fill:#00A651}
+  .ft-write-us p{font-size:13px;color:#555;flex:1}
+  .ft-write-us a{color:#00A651;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
+  .pb-footer .ft-bottom{border-top:1px solid #e0e0e0;padding:20px 0 24px;display:flex;flex-direction:column;gap:16px}
+  .ft-social{display:flex;gap:16px}
+  .ft-social a{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+  .ft-social a svg{width:22px;height:22px;fill:rgba(0,0,0,.4)}
+  .ft-bottom-links{display:flex;gap:20px;flex-wrap:wrap}
+  .ft-bottom-links a{color:#555;text-decoration:none;font-size:12px}
+  .ft-licence{font-size:11px;color:#999;line-height:1.5}
 
   /* ===== Drawer ===== */
   .overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);
@@ -341,93 +387,277 @@
 
   </script>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="ft-container">
-      <div class="ft-header">
-        <div class="ft-brand">PRIVATBANK</div>
-        <button class="ft-collapse" onclick="toggleFooter()" id="ftToggle">Згорнути <svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg></button>
+  <!-- ===== Recommended Products ===== -->
+  <section class="pb-section">
+    <h4>Recommended Products</h4>
+    <div class="pb-hscroll">
+      <a class="rp-card" href="#" style="background:#ECF2FB">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/bf17517fc3665955ea9cec47e7cd2306005c8c38.png" alt="Envelopes"></div>
+        <div class="rp-body"><div class="rp-title">Envelopes</div><div class="rp-desc">Take control of your budget: pay for everyday purchases or grow your savings with 5% annual interest on your balance.</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#DCFBF5">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/fefc7bcfd96aeefb463e6ae9d1a16f7d67abb0a6.png" alt="Pryvit Cashbacks"></div>
+        <div class="rp-body"><div class="rp-title">Pryvit Cashbacks</div><div class="rp-desc">The yourest cashbacks and discounts are right here! Just activate the "Pryvit" loyalty program in Privat24</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#ECF2FB">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/288229399a1e00142f26b3a6a0d23c8e4b11bd87.png" alt="Cash Loan"></div>
+        <div class="rp-body"><div class="rp-title">Cash Loan</div><div class="rp-desc">This is our very best loan. 2 minutes and up to UAH 500,000 are on your card. No service fee for withdrawal</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#FBF8E9">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/d31d291ae3714b144dc7468296dde13544b39e62.png" alt="Car Loan"></div>
+        <div class="rp-body"><div class="rp-title">Car Loan</div><div class="rp-desc">New and used cars. Getting a loan decision is faster than calling a taxi. Check out in Privat24</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#D1FBDD">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/9e9d7606070c53e52e943723132f132ff2a5dc0a.png" alt="International Money Transfers"></div>
+        <div class="rp-body"><div class="rp-title">International Money Transfers</div><div class="rp-desc">Instant and worldwide - from any country and to any bank. Urgent, currency and card-to-card money transfers</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#E4ECFD">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/88/e2988d1d6658acf63c3fa6ce0c2ec97ba74d65e6.jpg" alt="Currency exchange"></div>
+        <div class="rp-body"><div class="rp-title">Currency exchange</div><div class="rp-desc">Perform currency transactions quickly and easily</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#ECF5FB">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/ef0ceec1582bc8c3eb40264a128e2111c022f6b9.png" alt="Deposits"></div>
+        <div class="rp-body"><div class="rp-title">Deposits</div><div class="rp-desc">Time is passing by but your money keeps working. Get interest on your savings in hryvnia or foreign currency</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#FDF8E7">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/800f17ccfc71748757989876c711165b6067e38a.png" alt="Payment in Installments"></div>
+        <div class="rp-body"><div class="rp-title">Payment in Installments</div><div class="rp-desc">Buy now and pay later on. Split your purchases into easy monthly payments</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#DCFBF5">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/87/0f8ecf855edd1624a49563a837768e22bacc6b83.png" alt="Energy Grant"></div>
+        <div class="rp-body"><div class="rp-title">Energy Grant</div><div class="rp-desc">Up to 25% cashback on euro loans for energy equipment</div></div>
+      </a>
+      <a class="rp-card" href="#" style="background:#ECF5FB">
+        <div class="rp-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/recommended_products/0001/74/8c216f22ae593ba6eadbbf06bc386e2ce0129b98.png" alt="Insurance"></div>
+        <div class="rp-body"><div class="rp-title">Insurance</div><div class="rp-desc">4.7 million customers have already been protected with great care. Select the insurance option which is the best for you</div></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Cards ===== -->
+  <section class="pb-section">
+    <h4>Cards</h4>
+    <div class="pb-hscroll">
+      <div class="card-slide">
+        <div class="cs-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/main_cards/0001/75/30a4c98f7bcfc7d70d9bf9f474c6bf9cac05e2ca.jpg" alt="Universalna"></div>
+        <div class="cs-body">
+          <div class="cs-name">"Universalna"</div>
+          <ul>
+            <li>Credit limit up to UAH 500,000 and up to 55 days with no interest</li>
+            <li>Personal cashback in the "Pryvit" loyalty program</li>
+            <li>"Payment in Installments" and "Instant Installments": buy now and pay later on</li>
+          </ul>
+          <div class="cs-btns">
+            <a class="cs-btn primary" href="#">Open now</a>
+            <a class="cs-btn secondary" href="#">Details</a>
+          </div>
+        </div>
       </div>
-      <div class="ft-body" id="ftBody">
-        <div class="ft-touch">
-          <div class="ft-section-title">ЗВ'ЯЖІТЬСЯ З НАМИ</div>
-          <a href="tel:+211916986000">+211 916 986 000</a>
-          <a href="mailto:info@privatbank.ua">info@privatbank.ua</a>
-          <a href="#">Зв'яжіться з нами</a>
-        </div>
-        <div class="ft-grid">
-          <div>
-            <div class="ft-section-title">ПОСЛУГИ</div>
-            <ul>
-              <li><a href="#">Відкрити рахунок</a></li>
-              <li><a href="#">Оплатити / Надіслати гроші</a></li>
-              <li><a href="#">Зберегти / Інвестувати</a></li>
-              <li><a href="#">Позичити</a></li>
-              <li><a href="#">Благодійність</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="ft-section-title">НОВИНИ</div>
-            <ul>
-              <li><a href="#">Прес-релізи</a></li>
-              <li><a href="#">Галерея</a></li>
-              <li><a href="#">Публікації</a></li>
-            </ul>
+      <div class="card-slide">
+        <div class="cs-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/main_cards/0001/74/fc5b7cd9ef1490a90f4afd6333e4d7d1a424a5d2.jpg" alt="Card for Payments"></div>
+        <div class="cs-body">
+          <div class="cs-name">Card for Payments</div>
+          <ul>
+            <li>Can be used for receiving your salary, pension or scholarship</li>
+            <li>We'll issue this card for you in just 15 minutes</li>
+            <li>No fee for cash withdrawal at an ATM which you can surely find nearby</li>
+          </ul>
+          <div class="cs-btns">
+            <a class="cs-btn primary" href="#">Open now</a>
+            <a class="cs-btn secondary" href="#">Details</a>
           </div>
         </div>
-        <div class="ft-grid">
-          <div>
-            <div class="ft-section-title">ПРО PRIVATBANK</div>
-            <ul>
-              <li><a href="#">Хто ми</a></li>
-              <li><a href="#">Відносини з інвесторами</a></li>
-              <li><a href="#">Новини</a></li>
-              <li><a href="#">Кар'єра</a></li>
-              <li><a href="#">Тарифний довідник 2025</a></li>
-              <li><a href="#">Китайський відділ</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="ft-section-title">ГРАФІК РОБОТИ</div>
-            <div class="ft-hours">
-              <p>Пн-Пт 8:30 до 15:00<br>Роздрібні відділення</p>
-              <p>Пн-Пт 8:30 до 16:00<br>Головне відділення</p>
-              <p>Субота 8:30-12:00</p>
-              <p>Закрито в неділю та святкові дні</p>
-            </div>
+      </div>
+      <div class="card-slide">
+        <div class="cs-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/main_cards/0001/74/532401b15782f9d3ef76a0d04a2575b58dff81d8.jpg" alt="Junior Card"></div>
+        <div class="cs-body">
+          <div class="cs-name">Junior Card</div>
+          <ul>
+            <li>An adult card for youngest customers</li>
+            <li>Can be issued independently by a child since the age of 14</li>
+            <li>With the service "Worked - Earned" you can get money reward from your parents for the completed tasks</li>
+          </ul>
+          <div class="cs-btns">
+            <a class="cs-btn secondary" href="#">Details</a>
           </div>
         </div>
-        <div class="ft-social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 011-1h3v-4h-3a5 5 0 00-5 5v2.01h-2l-.396 3.98h2.396v8.01z"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.94 5a2 2 0 11-4 0 2 2 0 014 0zM3.5 8.5h3v12h-3zm5.5 0h3v1.7a3.6 3.6 0 013.1-1.7c2.3 0 4.4 1.5 4.4 4.8v7.2h-3v-6.5c0-1.8-.8-2.7-2-2.7s-2.5 1.1-2.5 2.9v6.3h-3z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+      <div class="card-slide">
+        <div class="cs-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/main_cards/0001/76/860143a2bc30118102587870b541a94344cdccd5.jpg" alt="Diia.Card"></div>
+        <div class="cs-body">
+          <div class="cs-name">Diia.Card</div>
+          <ul>
+            <li>Get state payments through the programs Schoolchild's Package, eBook, and Veteran Sports</li>
+            <li>Free to open</li>
+            <li>No fees on card transactions</li>
+          </ul>
+          <div class="cs-btns">
+            <a class="cs-btn primary" href="#">Open now</a>
+            <a class="cs-btn secondary" href="#">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-slide">
+        <div class="cs-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/main_cards/0001/74/43c3c081d4ab6e2ff23d68db6811d4e9db40bf2e.png" alt="Premium Package"></div>
+        <div class="cs-body">
+          <div class="cs-name">Premium Package</div>
+          <ul>
+            <li>Personal banker and Premium support 24/7</li>
+            <li>Concierge that will run your personal errands</li>
+            <li>The most lucrative promo offers and cashbacks</li>
+          </ul>
+          <div class="cs-btns">
+            <a class="cs-btn primary" href="#">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-slide">
+        <div class="cs-img"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/main_cards/0001/74/f8fdcef963d1c0e0fd5935fae40fb943e6e1ca1b.png" alt="Premium PLUS"></div>
+        <div class="cs-body">
+          <div class="cs-name">Premium PLUS</div>
+          <ul>
+            <li>It's like the Premium but with more extra benefits</li>
+            <li>Free supplementary cards for three of your family members</li>
+            <li>Even more offers: Telemedicine, Privat Library, streaming services, etc.</li>
+          </ul>
+          <div class="cs-btns">
+            <a class="cs-btn primary" href="#">Details</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="ft-bottom">
-      <div class="ft-bottom-inner">
-        <div class="ft-bottom-links">
-          <a href="#">Політика конфіденційності</a>
-          <a href="#">Умови та положення</a>
-        </div>
-        <p>PrivatBank регулюється Національним банком України</p>
-        <p class="copyright">&copy; PrivatBank 2026</p>
+  </section>
+
+  <!-- ===== About the PrivatBank ===== -->
+  <section class="pb-section">
+    <h4>About the PrivatBank</h4>
+    <div class="about-grid">
+      <a class="about-tile" href="#">
+        <img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/88/05ee29ef30925906ddace0d05d74f5a57f66e155.avif" alt="About the Bank">
+        <div class="at-label">About the Bank</div>
+      </a>
+      <a class="about-tile" href="#">
+        <img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/88/1128795c0aa114dd52a08d5a8e3bf66fcaa03ffb.avif" alt="Sustainable development and ESG">
+        <div class="at-label">Sustainable development and ESG</div>
+      </a>
+      <a class="about-tile" href="#">
+        <img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/88/b61875099f316092fceeae5cb776004a5bb6c89e.avif" alt="News">
+        <div class="at-label">News</div>
+      </a>
+      <a class="about-tile" href="#">
+        <img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/88/2676112e72ea1b6b0b3a307a5e729fa15cf36251.avif" alt="Vacancies">
+        <div class="at-label">Vacancies</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Privat24 App ===== -->
+  <section class="p24-section">
+    <img class="p24-phone" src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/83/e93e0c90a6a5e272c2c45d1d00bae442383519c9.png" alt="Privat24 App">
+    <h4>Privat24</h4>
+    <p class="p24-sub">The entire bank and much more in your smartphone.</p>
+    <p class="p24-sub" style="margin-bottom:8px">In the app you can:</p>
+    <ul>
+      <li>open a card and transfer money worldwide;</li>
+      <li>get personal cashbacks and real discounts;</li>
+      <li>pay for utility services in just a few clicks;</li>
+      <li>be an individual entrepreneur and do your business.</li>
+    </ul>
+    <p class="p24-sub">Download the app and we'll make your banking routine easier.</p>
+    <hr class="p24-divider">
+    <div class="store-row">
+      <a href="#"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/74/6d8e8adbc55cec1143302ca16c63859fd0d6ba5f.png" alt="Google Play"></a>
+      <a href="#"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/74/3fbf43c4ab0c5d6046dc314bf4ab14b586e2fb8c.png" alt="App Store"></a>
+      <a href="#"><img src="https://dwfvpbrjajjfs.cloudfront.net/media/default/0001/74/e9220cd26113f01c34a04e3187270a14948ae4b6.png" alt="AppGallery"></a>
+    </div>
+  </section>
+
+  <!-- ===== Charity ===== -->
+  <section class="charity-section">
+    <h4>Charity</h4>
+    <p>We support Ukrainian hospitals and medical staff. Together we can make a difference for those who need it most.</p>
+    <div>
+      <a class="donate-btn" href="#">Donate</a>
+      <a class="charity-link" href="#">All charity programs &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="pb-footer">
+    <div class="ft-cols">
+      <div class="ft-col">
+        <div class="ft-col-title">About the bank</div>
+        <ul>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Corporate governance</a></li>
+          <li><a href="#">Financial statements</a></li>
+          <li><a href="#">Ratings</a></li>
+          <li><a href="#">Procurements</a></li>
+          <li><a href="#">Social position</a></li>
+          <li><a href="#">Info for shareholders and stakeholders</a></li>
+        </ul>
       </div>
+      <div class="ft-col">
+        <div class="ft-col-title">Helpful pages</div>
+        <ul>
+          <li><a href="#">Contacts and details</a></li>
+          <li><a href="#">Tariffs</a></li>
+          <li><a href="#">Vacancies</a></li>
+          <li><a href="#">Security tips</a></li>
+          <li><a href="#">Deposit Guarantee Fund</a></li>
+          <li><a href="#">Protected population categories</a></li>
+          <li><a href="#">How the Bank operates under martial law</a></li>
+          <li><a href="#">How PrivatBank operates during blackouts</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-title">Our sites</div>
+        <ul>
+          <li><a href="#">Promos</a></li>
+          <li><a href="#">Charity</a></li>
+          <li><a href="#">LiqPay</a></li>
+          <li><a href="#">Car loans</a></li>
+          <li><a href="#">Card design</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ft-contact">
+      <div class="ft-phone-row">
+        <div class="ft-phone-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+        <div><div class="ft-ph-num">3700</div><div class="ft-ph-desc">for free from mobile</div></div>
+      </div>
+      <div class="ft-phone-row">
+        <div class="ft-phone-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+        <div><div class="ft-ph-num">+38 073 716 11 31</div><div class="ft-ph-desc">for calls from abroad/landlines</div></div>
+      </div>
+      <div class="ft-phone-row">
+        <div class="ft-phone-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+        <div><div class="ft-ph-num">0 800 505 120</div><div class="ft-ph-desc">Hotline for Militaries &amp; Veterans</div></div>
+      </div>
+    </div>
+
+    <div class="ft-write-us">
+      <div class="ft-wu-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg></div>
+      <p>Questions &amp; suggestions</p>
+      <a href="#">Write us</a>
+    </div>
+
+    <div class="ft-bottom">
+      <div class="ft-social">
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.404 18.629 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.79-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.93-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+      <div class="ft-bottom-links">
+        <a href="#">About personal data</a>
+        <a href="#">Public agreements</a>
+      </div>
+      <div class="ft-licence">&copy; <span id="pbYear"></span> PrivatBank License No. 22 dated 05/10/2011</div>
+      <script>document.getElementById("pbYear").textContent=new Date().getFullYear();</script>
     </div>
   </footer>
-  <script>
-  function toggleFooter(){
-    var b=document.getElementById("ftBody"),t=document.getElementById("ftToggle");
-    if(b.style.maxHeight&&b.style.maxHeight!=="0px"){
-      b.style.maxHeight="0px";
-      t.innerHTML='Розгорнути <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="#fff"/></svg>';
-    }else{
-      b.style.maxHeight=b.scrollHeight+"px";
-      t.innerHTML='Згорнути <svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z" fill="#fff"/></svg>';
-    }
-  }
-  window.addEventListener("load",function(){var b=document.getElementById("ftBody");if(b)b.style.maxHeight=b.scrollHeight+"px";});
-  </script>
 
 
   <!-- Drawer -->
